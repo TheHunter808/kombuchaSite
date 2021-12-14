@@ -1,0 +1,30 @@
+@mixin borderTest {
+ border: 1px solid darkcyan;
+}
+
+@mixin flex {
+ display: flex;
+ display: -webkit-flex;
+ align-items: center;
+}
+
+@mixin primaryColor {
+ color: #ff5331;
+}
+
+@mixin miniBorderline {
+ display: inline-block;
+ border-bottom: 1px solid rgb(173, 173, 173);
+}
+
+@mixin fontLato {
+ font-family: 'Lato', sans-serif;
+}
+
+@mixin fontQuicksand {
+ font-family: 'Quicksand', sans-serif;
+}
+
+@mixin fontKodchasan {
+ font-family: 'Kodchasan', sans-serif;
+}

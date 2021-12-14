@@ -1,0 +1,37 @@
+html {
+ box-sizing: border-box;
+
+ @include fontLato;
+ color: #3d3d3d;
+}
+
+*,
+*:before,
+*:after {
+ box-sizing: inherit;
+ margin: 0;
+ padding: 0;
+}
+
+a {
+ text-decoration: none;
+ color: inherit;
+}
+
+ul > a > li {
+ list-style-type: none;
+}
+
+div.primary__btn {
+ padding: 1.2em 1em;
+ width: 12em;
+ text-align: center;
+ background-color: #545268;
+ color: #ffffff;
+ letter-spacing: 2px;
+ font-weight: bold;
+ margin: 1em 0;
+ cursor: pointer;
+ font-size: 0.8rem;
+ box-sizing: content-box;
+}

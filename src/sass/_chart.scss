@@ -1,0 +1,32 @@
+.chart {
+ //  @include borderTest;
+ @include tertiaryBGColor;
+ padding: 2em;
+
+ &-wrapper {
+  //   @include borderTest;
+  @include flex;
+  justify-content: space-between;
+  width: 60%;
+  margin: 0 auto;
+ }
+
+ &-chart {
+  background-color: white;
+  padding: 1em 0.4em;
+  box-shadow: 0px 8px 24px 1px silver;
+  border-radius: 8px;
+
+  //   &-paragraph {
+  //   }
+ }
+
+ &-number {
+  margin: 0 1em;
+  &-number {
+   font-family: 'lato', Arial, Helvetica, sans-serif !important;
+   font-size: 2.8rem !important;
+   margin-bottom: 0.5em;
+  }
+ }
+}

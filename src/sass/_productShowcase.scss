@@ -1,0 +1,121 @@
+.product-showcase {
+ padding: 0 4vw;
+ &-container {
+  height: 100vh;
+  @include flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3vw;
+  margin: 3em 0;
+ }
+
+ &-article {
+  width: 33%;
+  line-height: 1.6em;
+  height: 30em;
+
+  &__img-container {
+   width: 50%;
+   //    padding: 7em 2em;
+
+   &__top-decoration {
+    width: 6em;
+    display: inline-block;
+    height: 8em;
+    position: relative;
+    top: 13em;
+    right: -31vw;
+    border-top: 2px solid $primaryColor;
+    border-right: 2px solid $primaryColor;
+   }
+
+   &__top-decoration.peach {
+    top: 13em;
+    left: 0vw;
+    border-top: 2px solid $peachColor;
+    border-left: 2px solid $peachColor;
+    border-right: none;
+   }
+   &__top-decoration.blackberry {
+    border-top: 2px solid $secondaryColor;
+    border-right: 2px solid $secondaryColor;
+   }
+
+   &__bottom-decoration {
+    width: 6em;
+    display: inline-block;
+    height: 8em;
+    position: relative;
+    bottom: 4em;
+    border-bottom: 2px solid $primaryColor;
+    border-left: 2px solid $primaryColor;
+   }
+   &__bottom-decoration.peach {
+    border-bottom: 2px solid $peachColor;
+    border-right: 2px solid $peachColor;
+    border-left: none;
+    right: -35vw;
+   }
+
+   &__bottom-decoration.blackberry {
+    border-bottom: 2px solid $secondaryColor;
+    border-left: 2px solid $secondaryColor;
+   }
+  }
+  &.peach {
+   order: 2;
+  }
+  &__img-container.peach {
+   order: 1;
+  }
+
+  &__mini-header {
+   @include primaryColor;
+   font-weight: 600;
+   letter-spacing: 1px;
+   margin-bottom: 1em;
+  }
+
+  &__header {
+   padding: 0.2em 0 0.8em 0;
+   line-height: 1.3em;
+  }
+
+  &__paragraph {
+   margin-bottom: 3em;
+  }
+ }
+
+ &-img-wrapper {
+  width: 16em;
+  margin: 0 auto;
+ }
+ &-article__img {
+  width: 100%;
+ }
+
+ &-vdo {
+  width: 10em;
+  text-align: center;
+  position: relative;
+  top: 8em;
+
+  &.peach {
+   right: -28vw;
+  }
+  &__play-btn {
+   padding: 3em;
+   border: 1px dashed $primaryColor;
+   border-radius: 50%;
+   cursor: pointer;
+  }
+
+  &__text {
+   position: relative;
+   right: -6em;
+   top: -5em;
+   font-weight: 600;
+   @include primaryColor;
+  }
+ }
+}

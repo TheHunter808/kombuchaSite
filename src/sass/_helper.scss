@@ -1,3 +1,8 @@
+$primaryColor: #ff5331;
+$peachColor: #b77b28;
+$secondaryColor: #545268;
+$fontColor: #3d3d3d;
+
 @mixin borderTest {
  border: 1px solid darkcyan;
 }
@@ -10,6 +15,14 @@
 
 @mixin primaryColor {
  color: #ff5331;
+}
+
+@mixin secondaryColor {
+ color: #545268;
+}
+
+@mixin tertiaryBGColor {
+ background-color: #f7f7f7;
 }
 
 @mixin miniBorderline {

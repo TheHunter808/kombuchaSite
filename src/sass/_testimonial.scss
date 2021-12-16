@@ -1,0 +1,68 @@
+.testimonial {
+ //  @include borderTest;
+ padding: 1em;
+
+ &-header {
+  //   @include borderTest;
+  text-align: center;
+  padding: 1em;
+  &-header {
+   margin-bottom: 0.2em;
+  }
+ }
+
+ &-cards {
+  @include flex;
+  @include borderTest;
+  padding: 1em;
+ }
+
+ &-card {
+  @include borderTest;
+  margin: 0 3em;
+  width: 20em;
+  height: 15em;
+  flex-shrink: 0;
+  padding: 1em;
+  display: grid;
+  grid-template-columns: 6em 1fr;
+  &-img {
+   width: 4em;
+   display: inline-block;
+   height: 4em;
+   border-radius: 50%;
+   &.dinesh {
+    background: url('../img/Testimonial/dinesh.png') center;
+    background-size: cover;
+   }
+   &.erlich {
+    background: url('../img/Testimonial/erlich.jpg') center;
+    background-size: cover;
+   }
+   &.jinyang {
+    background: url('../img/Testimonial/jinyang.png') center;
+    background-size: contain;
+   }
+   &.monica {
+    background: url('../img/Testimonial/monica.jpg') top;
+    background-size: cover;
+   }
+   &.jill {
+    background: url('../img/Testimonial/jilfoyle.jpg') top;
+    background-size: cover;
+   }
+   &.richard {
+    background: url('../img/Testimonial/richard.jpg') top;
+    background-size: cover;
+   }
+  }
+  &-quote-img__wrapper > img {
+   position: relative;
+   top: 3em;
+   opacity: 0.2;
+  }
+  &-paragraph {
+   grid-column: 1/3;
+  }
+ }
+}

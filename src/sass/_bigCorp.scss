@@ -3,7 +3,7 @@
  @include flex;
  justify-content: space-between;
  padding: 2em;
- background-color: #fafafa;
+ @include tertiaryBGColor;
  margin-top: 2em;
  &__image-container {
   width: 11em;

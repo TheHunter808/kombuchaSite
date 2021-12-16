@@ -1,0 +1,1 @@
+{"version":3,"sources":["src/js/index.js"],"names":["module","hot","accept"],"mappings":"AAEA,IAAIA,MAAM,CAACC,GAAX,EAAgB;AACdD,EAAAA,MAAM,CAACC,GAAP,CAAWC,MAAX;AACD","file":"js.d818e0ef.js","sourceRoot":"..","sourcesContent":["\r\n\r\nif (module.hot) {\r\n  module.hot.accept();\r\n}"]}

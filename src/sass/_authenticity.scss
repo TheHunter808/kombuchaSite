@@ -5,17 +5,39 @@
  width: 60vw;
  margin: 0 auto;
  margin-top: 2em;
- &-header {
-  @include fontKodchasan;
-  font-size: 2.4rem;
- }
+
  &-sub-header {
   padding: 1em 0;
  }
 
- &-icons {
+ &-icons-wrapper {
   @include flex;
   justify-content: space-between;
   padding: 1em 4em;
+ }
+ &-icons {
+  &-container {
+   width: 7em;
+  }
+  margin-bottom: 1em;
+ }
+
+ &-icon {
+  width: 90%;
+  min-width: 4em;
+
+  &-paragraph {
+   width: 7em;
+  }
+ }
+
+ &-text-container {
+  @include flex;
+  justify-content: space-between;
+  padding: 1em 4em;
+ }
+
+ div.primary__btn.authenticity {
+  margin: 0 auto !important;
  }
 }

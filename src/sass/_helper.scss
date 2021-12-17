@@ -41,3 +41,10 @@ $fontColor: #3d3d3d;
 @mixin fontKodchasan {
  font-family: 'Kodchasan', sans-serif;
 }
+
+@mixin cardShadow {
+ box-shadow: 0px 8px 24px 1px silver;
+ &:hover {
+  box-shadow: 0px 8px 10px 1px silver;
+ }
+}

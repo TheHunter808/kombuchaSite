@@ -16,29 +16,36 @@
     <div class="logo">
      <span class="logo-text"> KOMBUCHA </span>
     </div>
-
+    <div class="nav-mobile">
+       <i class="fas fa-bars"></i>
+       <i class="fa fa-close"></i>
+    </div>
     <nav class="nav">
      <ul class="navlist">
-      <a href="#" target="_blank" rel="noopener noreferrer">
-       <li class="nav-links">products</li>
+      <a href="#products" rel="noopener noreferrer">
+       <li class="nav-links">Products</li>
       </a>
       <a href="#" target="_blank" rel="noopener noreferrer">
-       <li class="nav-links">story</li>
+       <li class="nav-links">Story</li>
       </a>
 
       <a href="#" target="_blank" rel="noopener noreferrer">
-       <li class="nav-links">manufacturing</li>
+       <li class="nav-links">Manufacturing</li>
       </a>
       <a href="#" target="_blank" rel="noopener noreferrer">
-       <li class="nav-links">packaging</li>
+       <li class="nav-links">Packaging</li>
       </a>
      </ul>
     </nav>
 
     <div class="header-icon">
-     <img src="/search.fd784cf0.svg" alt="search icon" class="header-icon__search">
-     <img src="/cart.304cecd6.svg" alt="cart icon" class="header-icon__search">
-     <img src="/user_profile.e970f8ce.svg" alt="user profile icon" class="header-icon__search">
+        <div class="header-icon-searchbar ">
+            <input type="text" name="search" id="searchbar">
+             <img src="/search.fd784cf0.svg" alt="search icon" class="header-icon-icon" id="searchIcon">
+        </div>
+    
+     <img src="/cart.304cecd6.svg" alt="cart icon" class="header-icon-icon" id="cardIcon">
+     <img src="/user_profile.e970f8ce.svg" alt="user profile icon" class="header-icon-icon" id="userIcon">
     </div>
    </header>
 
@@ -187,7 +194,7 @@
 
    <!-- product showcase -->
 
-   <section class="product-showcase">
+   <section class="product-showcase" id="products">
     <div class="product-showcase-container">
      <article class="product-showcase-article">
       <span class="product-showcase-article__mini-header"> KOMBUCHA </span>
@@ -443,7 +450,7 @@
        optio adipisci obcaecati earum! Aliquid cumque ea magni pariatur.
       </p>
      </div>
-     <div class="testimonial-card">
+     <div class="testimonial-card cardActive">
       <div class="testimonial-card-quote-img__wrapper">
           <img src="/quote.4fd11176.png" alt="quote image">
       </div>
@@ -552,38 +559,45 @@
       </p>
      </div>
     </div>
+
+    <!-- chevron container -->
     <div class="chevron-container">
-     <i class="fas fa-chevron-left"></i>
+     <i class="fas fa-chevron-left "></i>
      <i class="fas fa-chevron-right"></i>
     </div>
    </section>
 
    <!-- footer -->
 
-   <footer class="footer">
-    <section class="footer-left">
-     <h3 class="footer-left-header">KOMBUCHA</h3>
-     <p class="footer-left-paragraph">
-      Sufficient particular impossible by reasonable oh expression is Yet
-      preference unpleasant.
-     </p>
+   <footer class="footer-container">
+  <div class="footer">
+        <section class="footer-left">
+            <div class="footer-left-content">
 
-     <div class="footer-left-social-media">
-      <a href="#">
-       <i class="fab fa-facebook"></i>
-      </a>
-      <a href="#">
-       <i class="fab fa-twitter"></i>
-      </a>
-
-      <a href="#">
-       <i class="fab fa-instagram"></i>
-      </a>
-     </div>
+                <h3 class="footer-left-header">KOMBUCHA</h3>
+                <p class="footer-left-paragraph">
+                 Sufficient particular impossible by reasonable oh expression is Yet
+                 preference unpleasant.
+                </p>
+           
+                <div class="footer-left-social-media">
+                 <a href="#">
+                  <i class="fab fa-facebook"></i>
+                 </a>
+                 <a href="#">
+                  <i class="fab fa-twitter"></i>
+                 </a>
+           
+                 <a href="#">
+                  <i class="fab fa-instagram"></i>
+                 </a>
+                </div>
+            </div>
     </section>
 
     <section class="footer-right">
-     <div class="footer-right">
+        <div class="footer-right-container">
+             <div class="footer-right-content">
       <h4 class="footer-right-header">Menu</h4>
       <ul class="footer-right-list">
        <li class="footer-right-lists"><a href="#">Donations</a></li>
@@ -594,7 +608,7 @@
       </ul>
      </div>
 
-     <div class="footer-right">
+     <div class="footer-right-content">
       <h4 class="footer-right-header">Categories</h4>
       <ul class="footer-right-list">
        <li class="footer-right-lists"><a href="#">Healthy Food</a></li>
@@ -604,7 +618,7 @@
       </ul>
      </div>
 
-     <div class="footer-right-">
+     <div class="footer-right-content-">
       <h4 class="footer-right-header">About Us</h4>
       <ul class="footer-right-list">
        <li class="footer-right-lists"><a href="#">Who are we?</a></li>
@@ -613,7 +627,14 @@
        <li class="footer-right-lists"><a href="#"> help</a></li>
       </ul>
      </div>
+        </div>
     </section>
+  </div>
+  <p class="footer-copyright">
+      <span class="footer-copyright-symbol">
+          &#169
+      </span>Copyright Kambucha. All rights reserved.
+  </p>
    </footer>
 </main>
  </body>

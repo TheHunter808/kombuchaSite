@@ -1,19 +1,17 @@
 .hero-banner {
- //  @include borderTest;
  @include flex;
  justify-content: center;
  height: 90vh;
  @include fontLato;
  //  font-family: 'Poppins', sans-serif;
  &_img-container {
-  //   @include borderTest;
   width: 40vw;
   height: 100%;
  }
 
  &_img-wrapper {
-  width: 44em;
-
+  width: 100%;
+  min-width: 44em;
   & > img.hero-banner__hero-img {
    width: 100%;
   }

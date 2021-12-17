@@ -1,11 +1,16 @@
 .header {
- //  @include borderTest;
  @include flex;
  justify-content: center;
  padding: 1em 1em;
  height: 8vh;
+
+ /** 
+ on scroll - activate 👇 this 
+ */
+ //  position: fixed;
+ //  width: 100%;
+ //  background-color: rgba(245, 244, 237, 0.952);
  div.logo {
-  //   @include borderTest;
   position: absolute;
   left: 2em;
   > span.logo-text {
@@ -15,27 +20,128 @@
  }
 
  .nav {
-  //   @include borderTest;
   width: 30em;
-
+  position: relative;
+  right: -8.1em;
   .navlist {
-   //    @include borderTest;
    @include flex;
    justify-content: space-around;
    font-weight: 400;
+   > a {
+    padding: 0.5em 0;
+    opacity: 0.7;
+    transition: all 0.2s ease-in-out;
+   }
+   > a:hover {
+    border-bottom: 2px solid $primaryColor;
+    opacity: 0.9;
+   }
   }
  }
 
  &-icon {
-  //   @include borderTest;
   @include flex;
   justify-content: space-between;
-  width: 10em;
+  width: auto;
   position: absolute;
-  right: 4em;
-
+  right: 11em;
   & > img {
    width: 2em;
+   margin: 0 0.2em;
   }
+
+  &-searchbar {
+   @include flex;
+   padding: 0.2em 1em;
+   justify-content: center;
+   align-items: center;
+   border-radius: 4px;
+   transition: all 1s ease-in-out;
+  }
+  &-icon {
+   width: 1.6em;
+   opacity: 0.8;
+   cursor: pointer;
+   &:hover {
+    opacity: 1;
+   }
+  }
+
+  input {
+   width: 17em;
+   height: 1.8em;
+   border: none;
+   display: none;
+   transition: all 1s ease-in-out;
+  }
+ }
+}
+
+.searchbarActive {
+ div.header-icon-searchbar {
+  border: 1px solid silver;
+ }
+
+ input {
+  display: inline;
+  animation: open 1s;
+  outline: none;
+ }
+}
+
+@keyframes open {
+ 0% {
+  width: 0;
+ }
+ 100% {
+  width: 17em;
+ }
+}
+
+//mobile navigation
+.navActive {
+ display: block;
+ position: absolute;
+ background: silver;
+ left: 0;
+ width: 50%;
+ height: 100vh;
+ top: 0;
+ .navlist {
+  flex-direction: column;
+  position: relative;
+  top: 11%;
+  font-size: 3vw;
+
+  & > a {
+   width: 80%;
+   text-align: center;
+   border-radius: 8px;
+   &:hover {
+    background-color: #c3c2c9;
+   }
+  }
+ }
+}
+
+.nav-mobile {
+ display: none;
+ position: relative;
+ left: -26vw;
+
+ padding: 0.4em;
+ cursor: pointer;
+ transition: all 0.6s ease-in-out;
+ background-color: rgb(212, 202, 212);
+ border-radius: 2px;
+ & i.fas.fa-bars {
+  font-size: 1.4rem;
+ }
+
+ & i.fa.fa-close {
+  display: none;
+  font-size: 1.5rem;
+  position: relative;
+  left: -0.9em;
  }
 }

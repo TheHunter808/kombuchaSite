@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Alata&family=Poppins:wght@300;400;500&family=Quicksand&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Kodchasan&display=swap");
@@ -21,7 +22,7 @@ a {
   color: inherit;
 }
 
-ul > a > li {
+li {
   list-style-type: none;
 }
 
@@ -52,6 +53,9 @@ h1:not(.hero-banner-content__header) {
   justify-content: center;
   padding: 1em 1em;
   height: 8vh;
+  /** 
+  on scroll - activate 👇 this 
+  */
 }
 .header div.logo {
   position: absolute;
@@ -63,6 +67,8 @@ h1:not(.hero-banner-content__header) {
 }
 .header .nav {
   width: 30em;
+  position: relative;
+  right: -8.1em;
 }
 .header .nav .navlist {
   display: flex;
@@ -71,17 +77,113 @@ h1:not(.hero-banner-content__header) {
   justify-content: space-around;
   font-weight: 400;
 }
+.header .nav .navlist > a {
+  padding: 0.5em 0;
+  opacity: 0.7;
+  transition: all 0.2s ease-in-out;
+}
+.header .nav .navlist > a:hover {
+  border-bottom: 2px solid #ff5331;
+  opacity: 0.9;
+}
 .header-icon {
   display: flex;
   display: -webkit-flex;
   align-items: center;
   justify-content: space-between;
-  width: 10em;
+  width: auto;
   position: absolute;
-  right: 4em;
+  right: 11em;
 }
 .header-icon > img {
   width: 2em;
+  margin: 0 0.2em;
+}
+.header-icon-searchbar {
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  padding: 0.2em 1em;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  transition: all 1s ease-in-out;
+}
+.header-icon-icon {
+  width: 1.6em;
+  opacity: 0.8;
+  cursor: pointer;
+}
+.header-icon-icon:hover {
+  opacity: 1;
+}
+.header-icon input {
+  width: 17em;
+  height: 1.8em;
+  border: none;
+  display: none;
+  transition: all 1s ease-in-out;
+}
+
+.searchbarActive div.header-icon-searchbar {
+  border: 1px solid silver;
+}
+.searchbarActive input {
+  display: inline;
+  animation: open 1s;
+  outline: none;
+}
+
+@keyframes open {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 17em;
+  }
+}
+.navActive {
+  display: block;
+  position: absolute;
+  background: silver;
+  left: 0;
+  width: 50%;
+  height: 100vh;
+  top: 0;
+}
+.navActive .navlist {
+  flex-direction: column;
+  position: relative;
+  top: 11%;
+  font-size: 3vw;
+}
+.navActive .navlist > a {
+  width: 80%;
+  text-align: center;
+  border-radius: 8px;
+}
+.navActive .navlist > a:hover {
+  background-color: #c3c2c9;
+}
+
+.nav-mobile {
+  display: none;
+  position: relative;
+  left: -26vw;
+  padding: 0.4em;
+  cursor: pointer;
+  transition: all 0.6s ease-in-out;
+  background-color: #d4cad4;
+  border-radius: 2px;
+}
+.nav-mobile i.fas.fa-bars {
+  font-size: 1.4rem;
+}
+.nav-mobile i.fa.fa-close {
+  display: none;
+  font-size: 1.5rem;
+  position: relative;
+  left: -0.9em;
 }
 
 .hero-banner {
@@ -97,7 +199,8 @@ h1:not(.hero-banner-content__header) {
   height: 100%;
 }
 .hero-banner_img-wrapper {
-  width: 44em;
+  width: 100%;
+  min-width: 44em;
 }
 .hero-banner_img-wrapper > img.hero-banner__hero-img {
   width: 100%;
@@ -381,8 +484,8 @@ h1:not(.hero-banner-content__header) {
   padding: 2em 5em;
   width: 40em;
   margin: 0 1em;
-  box-shadow: 0px 8px 24px 1px silver;
   cursor: pointer;
+  box-shadow: 0px 8px 24px 1px silver;
 }
 .popular-card:hover {
   box-shadow: 0px 8px 10px 1px silver;
@@ -448,14 +551,11 @@ h1:not(.hero-banner-content__header) {
   display: flex;
   display: -webkit-flex;
   align-items: center;
-  border: 1px solid darkcyan;
   padding: 1em;
 }
 .testimonial-card {
-  border: 1px solid darkcyan;
-  margin: 0 3em;
-  width: 20em;
-  height: 15em;
+  width: 25em;
+  height: 18em;
   flex-shrink: 0;
   padding: 1em;
   display: grid;
@@ -491,6 +591,12 @@ h1:not(.hero-banner-content__header) {
   background: url("/richard.30ad56a5.jpg") top;
   background-size: cover;
 }
+.testimonial-card-img-stars {
+  text-align: center;
+  margin-right: 5em;
+  padding-top: 1em;
+  line-height: 1.8em;
+}
 .testimonial-card-quote-img__wrapper > img {
   position: relative;
   top: 3em;
@@ -498,6 +604,144 @@ h1:not(.hero-banner-content__header) {
 }
 .testimonial-card-paragraph {
   grid-column: 1/3;
+  text-align: center;
+}
+.testimonial i.fa.fa-star {
+  color: #ff5331;
+}
+.testimonial-card {
+  margin: 0 1.5em;
+}
+
+.chevron-container {
+  padding: 1em;
+  text-align: center;
+}
+.chevron-container i.fas.fa-chevron-left,
+.chevron-container i.fas.fa-chevron-right {
+  padding: 0.6em 0.8em;
+  font-size: 1.2rem;
+  color: silver;
+  border-radius: 50%;
+}
+.chevron-container i.fas.fa-chevron-left:hover,
+.chevron-container i.fas.fa-chevron-right:hover {
+  background-color: #272727;
+}
+
+.cardActive {
+  box-shadow: 0px 8px 24px 1px silver;
+}
+.cardActive:hover {
+  box-shadow: 0px 8px 10px 1px silver;
+}
+
+.chevronActive {
+  background-color: #272727;
+}
+
+.footer {
+  background-color: #f7f7f7;
+  padding: 2em 4em;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.footer-left {
+  padding: 1em;
+  width: 50%;
+}
+.footer-left-header {
+  margin-bottom: 1em;
+  font-size: 1.6rem;
+}
+.footer-left-paragraph {
+  font-size: 1.2rem;
+}
+.footer-left-content {
+  width: 17em;
+  line-height: 1.5em;
+}
+.footer-left-social-media {
+  font-size: 1.8rem;
+  margin-top: 1em;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+}
+.footer-right {
+  width: 50%;
+}
+.footer-right-header {
+  font-size: 1.4rem;
+}
+.footer-right-container {
+  width: 36vw;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 2.2em;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.footer-copyright {
+  text-align: center;
+  padding: 1em;
+}
+
+@media screen and (max-width: 1320px) {
+  .header-icon {
+    right: 1%;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .header .nav {
+    display: none;
+  }
+  .header .nav-mobile {
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width: 1128px) {
+  .hero-banner_img-wrapper {
+    min-width: 60vw;
+    top: 7em;
+    position: relative;
+    z-index: -1;
+  }
+  .hero-banner-content {
+    margin-top: 8vh;
+  }
+  .hero-banner-content__header {
+    font-size: 8vw;
+  }
+}
+@media screen and (max-width: 960px) {
+  .hero-banner-content__product-category {
+    width: 100%;
+  }
+  .hero-banner-content__product-category__content-text {
+    font-size: 2.2vw;
+  }
+}
+@media screen and (max-width: 680px) {
+  .hero-banner-content_paragraph {
+    width: 100%;
+  }
+  .hero-banner_img-wrapper {
+    top: 20vh;
+  }
+  .hero-banner-content__product-category {
+    position: absolute;
+    left: 0;
+    padding: 1em 2em;
+  }
 }
 
 /*# sourceMappingURL=/main.2026268b.css.map */

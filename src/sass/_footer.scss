@@ -1,0 +1,58 @@
+.footer {
+ @include tertiaryBGColor;
+ //  @include borderTest;
+ padding: 2em 4em;
+ @include flex;
+ justify-content: space-between;
+ align-items: flex-start;
+ &-left,
+ &-right {
+  //   @include borderTest;
+ }
+
+ &-left {
+  padding: 1em;
+  width: 50%;
+  &-header {
+   margin-bottom: 1em;
+   font-size: 1.6rem;
+  }
+
+  &-paragraph {
+   font-size: 1.2rem;
+  }
+  &-content {
+   width: 17em;
+   line-height: 1.5em;
+  }
+
+  &-social-media {
+   font-size: 1.8rem;
+   margin-top: 1em;
+   @include flex;
+   justify-content: space-between;
+   width: 50%;
+  }
+ }
+
+ &-right {
+  width: 50%;
+
+  &-header {
+   font-size: 1.4rem;
+  }
+ }
+ &-right-container {
+  width: 36vw;
+  @include flex;
+  justify-content: space-between;
+  line-height: 2.2em;
+  align-items: flex-start;
+  flex-shrink: 0;
+ }
+
+ &-copyright {
+  text-align: center;
+  padding: 1em;
+ }
+}

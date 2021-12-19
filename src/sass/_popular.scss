@@ -1,6 +1,6 @@
 .popular {
  margin-top: 1em;
- padding: 1em 8vw;
+ padding: 1em 3vw;
  &-header-content {
   padding: 1em;
   @include flex;
@@ -29,10 +29,9 @@
   @include flex;
   margin: 4em 0;
 
-  &__slide-1,
-  &__slide-2 {
+  &__slider {
    @include flex;
-   margin: 0 1em;
+   //    margin: 0 1em;
   }
  }
 

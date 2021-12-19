@@ -87,25 +87,6 @@
  }
 }
 
-.chevron-container {
- padding: 1em;
- text-align: center;
- i.fas.fa-chevron-left,
- i.fas.fa-chevron-right {
-  padding: 0.6em 0.8em;
-  font-size: 1.2rem;
-  color: silver;
-  border-radius: 50%;
- }
- i.fas.fa-chevron-left:hover,
- i.fas.fa-chevron-right:hover {
-  background-color: rgb(39, 39, 39);
- }
-}
-
 .cardActive {
  @include cardShadow;
-}
-.chevronActive {
- background-color: rgb(39, 39, 39);
 }

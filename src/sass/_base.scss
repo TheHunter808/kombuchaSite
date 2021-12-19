@@ -22,7 +22,8 @@ li {
  list-style-type: none;
 }
 
-div.primary__btn {
+div.primary__btn,
+div.primary__btn__product-showcase {
  padding: 1.2em 1em;
  width: 12em;
  text-align: center;
@@ -42,4 +43,27 @@ h1:not(.hero-banner-content__header) {
  @include secondaryColor;
  @include fontKodchasan;
  font-size: 2.2rem;
+}
+
+//common navigation bar for sliders
+
+.chevron-container,
+.chevron-container-popular {
+ padding: 1em;
+ text-align: center;
+ i.fas.fa-chevron-left,
+ i.fas.fa-chevron-right {
+  padding: 0.6em 0.8em;
+  font-size: 1.2rem;
+  color: silver;
+  border-radius: 50%;
+ }
+ i.fas.fa-chevron-left:hover,
+ i.fas.fa-chevron-right:hover {
+  background-color: rgb(39, 39, 39);
+ }
+}
+
+.chevronActive {
+ background-color: rgb(39, 39, 39);
 }

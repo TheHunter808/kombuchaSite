@@ -41,16 +41,19 @@
     border-right: 2px solid $secondaryColor;
    }
 
-   &__bottom-decoration {
+   &__bottom-decoration,
+   &__bottom-decoration-peach {
     width: 6em;
     display: inline-block;
     height: 8em;
     position: relative;
+   }
+   &__bottom-decoration {
     bottom: 4em;
     border-bottom: 2px solid $primaryColor;
     border-left: 2px solid $primaryColor;
    }
-   &__bottom-decoration.peach {
+   &__bottom-decoration-peach {
     border-bottom: 2px solid $peachColor;
     border-right: 2px solid $peachColor;
     border-left: none;
@@ -87,20 +90,21 @@
  }
 
  &-img-wrapper {
-  width: 16em;
+  width: 16vw;
   margin: 0 auto;
  }
  &-article__img {
   width: 100%;
  }
 
- &-vdo {
+ &-vdo,
+ &-vdo-peach {
   width: 10em;
   text-align: center;
   position: relative;
-  top: 8em;
+  top: 4em;
 
-  &.peach {
+  &-peach {
    right: -28vw;
   }
   &__play-btn {
@@ -110,7 +114,8 @@
    cursor: pointer;
   }
 
-  &__text {
+  &__text,
+  &__text-peach {
    position: relative;
    right: -6em;
    top: -5em;

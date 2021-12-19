@@ -13,7 +13,7 @@
  &-icons-wrapper {
   @include flex;
   justify-content: space-between;
-  padding: 1em 4em;
+  padding: 1em;
  }
  &-icons {
   &-container {
@@ -34,7 +34,7 @@
  &-text-container {
   @include flex;
   justify-content: space-between;
-  padding: 1em 4em;
+  padding: 1em;
  }
 
  div.primary__btn.authenticity {

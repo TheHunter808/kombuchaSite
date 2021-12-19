@@ -12,6 +12,10 @@
   .nav-mobile {
    display: inline-block;
   }
+
+  div.logo {
+   left: 6em;
+  }
  }
 }
 
@@ -25,7 +29,7 @@
   }
 
   &-content {
-   margin-top: 8vh;
+   margin-top: -6vh;
   }
   &-content__header {
    font-size: 8vw;
@@ -37,7 +41,7 @@
    width: 100%;
 
    &__content-text {
-    font-size: 2.2vw;
+    font-size: 3vw;
    }
   }
  }
@@ -52,6 +56,270 @@
    position: absolute;
    left: 0;
    padding: 1em 2em;
+  }
+ }
+
+ @media screen and (max-width: 480px) {
+  &-content__product-category__content-header {
+   font-size: 0.6rem;
+  }
+ }
+}
+
+.big-corps {
+ height: 8em;
+ padding: 1em 0.2vw;
+ margin-top: 0;
+ &__image-container {
+  padding: 1.4vw;
+ }
+}
+
+.authenticity {
+ @media screen and (max-width: 1000px) {
+  width: 100%;
+  padding: 0 4vw;
+ }
+ @media screen and (max-width: 680px) {
+  width: 100%;
+  padding: 0 1vw;
+  &-icons-container {
+   width: 15vw;
+  }
+  //   @media screen and (max-width: 680px) {
+  //   }
+  &-icon-paragraph {
+   font-size: 2.6vw;
+  }
+ }
+ @media screen and (max-width: 480px) {
+  &-icons-container {
+   width: 4em;
+  }
+
+  &-icon {
+   min-width: 3em;
+  }
+
+  &-text-container {
+   padding: 0.2em;
+  }
+
+  div.primary__btn.authenticity#authenticity-btn {
+   margin-top: 3em !important;
+  }
+ }
+}
+
+.arie-kombucha {
+ @media screen and (max-width: 711px) {
+  width: 100%;
+  padding: 1em 2vw;
+  margin: 2em auto;
+ }
+}
+
+.product-showcase {
+ @media screen and (max-width: 1100px) {
+  &-vdo__play-btn {
+   padding: 4vw;
+  }
+ }
+ @media screen and (max-width: 1000px) {
+  &-vdo {
+   left: -5vw;
+  }
+  &-vdo,
+  &-vdo-peach {
+   top: 3em;
+  }
+
+  &-container {
+   height: 70vh;
+   margin: 6em 0;
+  }
+
+  span.product-showcase-vdo__text-peach {
+   left: -10vw;
+  }
+
+  &-article {
+   width: 42%;
+  }
+ }
+
+ @media screen and (max-width: 800px) {
+  &-article__img-container__bottom-decoration-peach {
+   left: 32vw;
+  }
+ }
+ @media screen and (max-width: 725px) {
+  &-vdo,
+  &-vdo-peach {
+   width: 14em;
+
+   &__text {
+    right: 3em;
+    top: -4em;
+   }
+   &__text-peach {
+    left: -25vw !important;
+    top: -4em;
+   }
+  }
+ }
+
+ @media screen and (max-width: 680px) {
+  &-container {
+   flex-direction: column;
+   height: 133vh;
+   margin: 4em 0;
+  }
+
+  &-article {
+   width: 100%;
+
+   &__paragraph {
+    width: 90%;
+   }
+
+   &__img-container {
+    width: 100%;
+
+    &__top-decoration {
+     right: -65vw;
+     //  top: 8em;
+     top: 4em;
+     margin-right: 15vw;
+    }
+    &__top-decoration.peach {
+     top: 4em;
+    }
+    &__bottom-decoration {
+     bottom: 5em;
+    }
+    .product-showcase-article__img-container__bottom-decoration-peach {
+     left: 64vw;
+     bottom: 6em;
+    }
+   }
+  }
+
+  &-img-wrapper {
+   width: 34%;
+   position: relative;
+   top: -5em;
+  }
+  &-vdo {
+   left: 3vw;
+   top: -3em;
+  }
+  &-vdo-peach {
+   right: -64vw;
+   top: -4em;
+  }
+  &-vdo__text-peach,
+  &-vdo__text {
+   font-size: 2.6vw;
+   //    top: -5em;
+  }
+  div.primary__btn__product-showcase {
+   margin: 0 auto;
+  }
+
+  article.product-showcase-article.peach {
+   order: 1 !important;
+  }
+  aside.product-showcase-article__img-container.peach {
+   order: 2 !important;
+  }
+ }
+
+ @media screen and (max-width: 535px) {
+  &-vdo-peach {
+   right: -60vw;
+  }
+ }
+ @media screen and (max-width: 450px) {
+  &-vdo-peach {
+   right: -50vw;
+  }
+ }
+}
+
+.popular {
+ @media screen and (max-width: 780px) {
+  &-header-content {
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+  }
+
+  &-navigation-number {
+   position: static;
+   margin-top: 1em;
+  }
+
+  &-card {
+   width: 70vw;
+   min-width: 24em;
+   padding: 2em;
+
+   &-article {
+    width: 15em;
+    padding: 0;
+    padding-right: 1em;
+   }
+
+   &-header {
+    font-size: 1.4rem;
+   }
+
+   &-paragraph {
+    padding: 1em 0;
+   }
+   &-img-container {
+    width: 11vh;
+   }
+  }
+ }
+}
+
+.chart {
+ @media screen and (max-width: 1215px) {
+  &-number {
+   text-align: center;
+  }
+ }
+
+ @media screen and (max-width: 880px) {
+  &-wrapper {
+   width: 100%;
+  }
+ }
+
+ @media screen and (max-width: 680px) {
+  padding: 2em 1em;
+
+  &-wrapper {
+   justify-content: space-evenly;
+  }
+
+  &-chart > img {
+   width: 100%;
+   min-width: 7em;
+   padding: 1em 0.4em;
+  }
+  &-number-number {
+   font-size: 6vw !important;
+  }
+
+  &-paragraph {
+   font-size: 2.4vw;
+  }
+
+  p.chart-paragraph:last-child {
+   width: 7em;
   }
  }
 }

@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="./src/js/index.js"></script>
   <link
    rel="stylesheet"
    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -13,6 +12,7 @@
    referrerpolicy="no-referrer"
   />
   <link rel="stylesheet" href="./src/sass/main.scss" />
+  <script defer src="./src/js/index.js"></script>
   
   <title>Kambucha Store</title>
  </head>
@@ -26,7 +26,7 @@
        <i class="fas fa-bars"></i>
        <i class="fa fa-close"></i>
     </div>
-    <nav class="nav">
+    <nav class="nav ">
      <ul class="navlist">
       <a href="#products"  rel="noopener noreferrer">
        <li class="nav-links">Products</li>
@@ -57,7 +57,7 @@
      <img
       src="./src/img/svg_icon/cart.svg"
       alt="cart icon"
-      class="header-icon-icon" id="cardIcon"
+      class="header-icon-icon" id="cartIcon"
      />
      <img
       src="./src/img/svg_icon/user_profile.svg"
@@ -454,8 +454,8 @@
     </div>
 
       <div class="chevron-container-popular">
-     <i class="fas fa-chevron-left"></i>
-     <i class="fas fa-chevron-right"></i>
+     <i class="fas fa-chevron-left" id="popular-btn-left"></i>
+     <i class="fas fa-chevron-right" id="popular-btn-right"></i>
     </div>
    </section>
 
@@ -501,7 +501,7 @@
 
 
     <div class="testimonial-cards">
-     <div class="testimonial-card">
+     <div class="testimonial-card cardActive">
       <div class="testimonial-card-quote-img__wrapper">
           <img src="./src/img/svg_icon/quote.png" alt="quote image">
       </div>
@@ -522,7 +522,7 @@
        optio adipisci obcaecati earum! Aliquid cumque ea magni pariatur.
       </p>
      </div>
-     <div class="testimonial-card cardActive">
+     <div class="testimonial-card ">
       <div class="testimonial-card-quote-img__wrapper">
           <img src="./src/img/svg_icon/quote.png" alt="quote image">
       </div>

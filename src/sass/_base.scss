@@ -13,6 +13,7 @@ html {
  padding: 0;
 }
 
+//universal links reset
 a {
  text-decoration: none;
  color: inherit;
@@ -27,6 +28,7 @@ div.primary__btn__product-showcase {
  padding: 1.2em 1em;
  width: 12em;
  text-align: center;
+ //  background-color: #545268;
  background-color: #545268;
  color: #ffffff;
  letter-spacing: 2px;
@@ -35,6 +37,15 @@ div.primary__btn__product-showcase {
  cursor: pointer;
  font-size: 0.8rem;
  box-sizing: content-box;
+ transition: background-color 0.4s ease-in-out;
+
+ &:hover {
+  background-color: #312d51;
+  box-shadow: 0px 5px 10px 1px rgb(158, 156, 156);
+ }
+ &:active {
+  box-shadow: 0px 1px 1px 1px rgb(158, 156, 156);
+ }
 }
 
 //common h1 color for most
@@ -51,6 +62,7 @@ h1:not(.hero-banner-content__header) {
 .chevron-container-popular {
  padding: 1em;
  text-align: center;
+ cursor: pointer;
  i.fas.fa-chevron-left,
  i.fas.fa-chevron-right {
   padding: 0.6em 0.8em;

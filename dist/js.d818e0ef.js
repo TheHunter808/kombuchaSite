@@ -124,15 +124,93 @@ var iconContainer = document.querySelector('.header-icon'); // console.log(searc
 searchIcon.addEventListener('click', function () {
   iconContainer.classList.toggle('searchbarActive');
 });
+},{}],"src/js/mobileNav.js":[function(require,module,exports) {
+var mobileNavcontainer = document.querySelector('.nav-mobile');
+var header = document.querySelector('.header');
+var navcontainer = document.querySelector('.nav'); // burger nav logic
+
+mobileNavcontainer.addEventListener('click', function () {
+  header.classList.toggle('navActive');
+});
+},{}],"src/js/popularSlider.js":[function(require,module,exports) {
+var popularSlider = document.querySelector('.popular-cards__slider');
+var popularBtnLeft = document.getElementById('popular-btn-left');
+var popularBtnRight = document.getElementById('popular-btn-right');
+console.log(popularBtnRight);
+var count = 1;
+var rightBtn = null;
+var leftBtn = null;
+popularBtnLeft.addEventListener('click', function () {
+  slideLeft(popularSlider);
+  count++;
+
+  if (count === 4) {
+    console.log('💥 Stop 💥 ');
+    count = 0;
+    console.log('💯 count reset to 0 💯');
+  }
+
+  leftBtn = true;
+  console.log(leftBtn);
+});
+popularBtnRight.addEventListener('click', function () {
+  if (leftBtn === true) {
+    count = 0;
+    console.log("Left btn true: Counter reset to 0 successfully!");
+    slideRight(popularSlider);
+    count--;
+
+    if (count === -4) {
+      console.log('💥 Right button Stop 💥 ');
+      count = 0;
+      console.log('💯 Right: count reset to 0 💯');
+    }
+  }
+
+  if (count === 1) {
+    count = -1;
+  } //  rightBtn = true;
+  //  if (rightBtn === true) {
+  //   slideRight(popularSlider);
+  //   count--;
+  //   if (count === -4) {
+  //    console.log('💥 Right button Stop 💥 ');
+  //    count = 0;
+  //    console.log('💯 Right: count reset to 0 💯');
+  //   }
+  //  }
+
+}); // function slideLeft(slider) {
+//  slider.style.transform = `translateX(-${count * 25}%)`;
+//  console.log(`slide left: ${count}`);
+// }
+// function slideRight(slider) {
+//  slider.style.transform = `translateX(${count * 25}%)`;
+//  console.log(`slide Right: ${count}`);
+// }
+
+function slideLeft() {
+  popularSlider.style.transform = "translateX(-".concat(count * 25, "%)");
+  console.log("slide left: ".concat(count));
+}
+
+function slideRight() {
+  popularSlider.style.transform = "translateX(".concat(count * 25, "%)");
+  console.log("slide Right: ".concat(count));
+}
 },{}],"src/js/index.js":[function(require,module,exports) {
 "use strict";
 
 require("./searchbar");
 
+require("./mobileNav");
+
+require("./popularSlider");
+
 if (module.hot) {
   module.hot.accept();
 }
-},{"./searchbar":"src/js/searchbar.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./searchbar":"src/js/searchbar.js","./mobileNav":"src/js/mobileNav.js","./popularSlider":"src/js/popularSlider.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -160,7 +238,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52627" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53355" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

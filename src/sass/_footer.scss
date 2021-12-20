@@ -32,6 +32,15 @@
    @include flex;
    justify-content: space-between;
    width: 50%;
+
+   & > a > i {
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+     color: #373553;
+     transform: scale(1.2);
+    }
+   }
   }
  }
 
@@ -49,6 +58,15 @@
   line-height: 2.2em;
   align-items: flex-start;
   flex-shrink: 0;
+ }
+
+ &-right-lists > a {
+  transition: all 0.3s ease-in-out;
+  padding: 0.2em 0;
+  &:hover {
+   border-bottom: 2px solid $primaryColor;
+   opacity: 0.9;
+  }
  }
 
  &-copyright {

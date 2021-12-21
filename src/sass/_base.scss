@@ -13,6 +13,9 @@ html {
  padding: 0;
 }
 
+body {
+ overflow-x: hidden;
+}
 //universal links reset
 a {
  text-decoration: none;

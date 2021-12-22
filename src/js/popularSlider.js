@@ -1,114 +1,15 @@
 const popularSlider = document.querySelector('.popular-cards__slider');
 const popularBtnLeft = document.getElementById('popular-btn-left');
 const popularBtnRight = document.getElementById('popular-btn-right');
-const popularNavNumber = document.querySelectorAll('.popular-nav-number');
-const popularNavNumber__border = document.querySelectorAll(
- '.popular-nav-number__border'
+const popularNavNumber = document.getElementsByClassName('popular-nav-number');
+const popularNavNumber__border = document.getElementsByClassName(
+ 'popular-nav-number__border'
 );
-console.log();
-
-// console.log(popularBtnRight);
-
-// let count = 1;
-// let slideCount = 1;
-// let slideCountRemover = 0;
-// let rightBtn = false;
-// let leftBtn = false;
+console.log(popularNavNumber);
+console.log(popularNavNumber__border);
 
 //default configuration
 leftBtnHide();
-// navigationShow(0, 0);
-
-// popularBtnLeft.addEventListener('click', () => {
-//  //resets count from right button
-//  if (rightBtn === true) {
-//   count = 1;
-//   slideCount = 1;
-//   slideCountRemover = 0;
-//   rightBtn = false;
-//   console.log(`💥 Left btn true: Count reset to 0 successfully!💥`);
-//  }
-
-//  //slide logic
-//  slideLeft();
-//  count++;
-//  console.log((popularSlider.style.transform = `translateX(${count * 25}%)`));
-//  //shows right button
-//  rightBtnShow();
-//  console.log(`count: ${count}`);
-
-//  //  remove default pagination tracker
-//  navigationRemove(0, 0);
-
-//  //remove previous Slide highlight
-//  navigationRemove(slideCountRemover, slideCountRemover);
-//  slideCountRemover++;
-//  console.log(`removal count: ${slideCountRemover}`);
-
-//  //  show recent slide
-//  navigationShow(slideCount, slideCount);
-//  console.log(`slidecount: ${slideCount}`);
-//  slideCount++;
-//  console.log(`slide count after increment: ${slideCount}`);
-//  console.log(`🏁 end`);
-//  //maxlength logic
-//  if (count === 4) {
-//   count = 0;
-//   //   slideCount = 1;
-//   //   slideCountRemover = 0;
-//   leftBtnHide();
-//   console.log(`🏁 count is 4, count is reset to 0 🏁`);
-//  }
-//  leftBtn = true;
-//  return leftBtn;
-// });
-
-//////////// 👇 button right
-
-// popularBtnRight.addEventListener('click', () => {
-//  if (!leftBtn === true) {
-//   leftBtnShow();
-//  }
-//  if (leftBtn === true) {
-//   count - 1;
-//   //   navigationRemove(slideCountRemover, slideCountRemover);
-//   //   navigationShow(0, 0);
-//   leftBtn = false;
-//  }
-//  if (count < 0) {
-//   console.log('negative');
-//  }
-//  slideRight();
-
-//  count--;
-
-//  console.log(`count: ${count}`);
-//  //  navigationRemove(0, 0);
-//  // if(count <)
-//  //  console.log(
-//  //   (popularSlider.style.transform = `translateX(${(count - 1) * 25}%)`)
-//  //  );
-//  let result = getComputedStyle(popularSlider);
-//  console.log(result);
-//  //  show recent slide
-//  //  navigationShow(slideCount - 1, slideCount - 1);
-//  //  console.log(`slidecount --Right: ${slideCount - 1}`);
-//  //  slideCount--;
-//  //  console.log(`slide count after increment--Right: ${slideCount}`);
-//  //  //remove previous Slide highlight
-//  //  navigationRemove(slideCountRemover - 1, slideCountRemover - 1);
-//  //  slideCountRemover--;
-//  console.log(`👉removal count--Right: ${slideCountRemover}`);
-//  console.log(`🏁 end`);
-
-//  if (count === -2) {
-//   count = 0;
-//   rightBtnHide();
-//   //   leftBtnShow();
-//   //   slideReset();
-//  }
-//  rightBtn = true;
-// });
 
 //slide function
 
@@ -145,43 +46,39 @@ function rightBtnShow() {
 
 //to add and remove pagination highlight
 
-// function navigationShow(num, borderIndex) {
-//  Math.abs(popularNavNumber[num].classList.add('nav-number-active'));
-//  popularNavNumber__border[borderIndex].classList.add('border-active');
-// }
-
-// function navigationRemove(num, borderIndex) {
-//  Math.abs(popularNavNumber[num].classList.remove('nav-number-active'));
-//  popularNavNumber__border[borderIndex].classList.remove('border-active');
-// }
-
 let slideIndex = 0;
+let navIndex = 1;
+let navIndexMax = 4;
 let slideLeftIndex = null;
 let slideRightIndex = null;
 let maxSlideIndex = 2;
+let navMax = 3;
+// default highlighter
+popularNavNumber[0].classList.add('nav-number-active');
+popularNavNumber__border[0].classList.add('border-active');
 
-leftBtnShow();
+// navigationShow();
+
 popularBtnLeft.addEventListener('click', () => {
- if (slideLeftIndex === 1) {
-  leftBtnHide();
- }
- popularSlider.style.transform = `translateX(${slideIndex * 25}%)`;
- slideIndex--;
- slideLeftIndex++;
- console.log(`slide right: ${slideIndex}`);
- console.log(`slideLeft Index: ${slideLeftIndex}`);
- console.log(
-  (popularSlider.style.transform = `translateX(-${slideIndex * 25}%)`)
- );
+ slideLeft();
 });
 
-popularBtnRight.addEventListener('click', () => {
+popularBtnRight.addEventListener('click', slideRight);
+
+function slideRight() {
  if (slideIndex === maxSlideIndex) {
-  //   popularSlider.style.transform = `translateX(0)%`;
   console.log(true);
   rightBtnHide();
  }
+ if (slideLeftIndex > -1) {
+  leftBtnShow();
+ }
+ console.log(` 👉 navIndex BEFORE increment: ${navIndex}`);
+ navIndex++;
+ console.log(`👉 navIndex AFTER increment: ${navIndex}`);
+ navigationShow();
  popularSlider.style.transform = `translateX(-${slideIndex * 25}%)`;
+ navigationRemove();
  slideIndex++;
  console.log(`slideIndex: ${slideIndex}`);
  slideRightIndex++;
@@ -191,4 +88,42 @@ popularBtnRight.addEventListener('click', () => {
  console.log(
   (popularSlider.style.transform = `translateX(-${slideIndex * 25}%)`)
  );
-});
+}
+
+function slideLeft() {
+ if (slideLeftIndex === -1) {
+  leftBtnHide();
+ }
+ if (slideRightIndex > 1) {
+  rightBtnShow();
+ }
+ console.log(`👈 navIndex BEFORE decrement: ${navIndex}`);
+ navIndex--;
+ console.log(`👈 navIndex AFTER decrement: ${navIndex}`);
+ navigationShow();
+
+ popularSlider.style.transform = `translateX(${slideIndex * 25}%)`;
+ navigationRemove();
+ slideIndex--;
+ slideLeftIndex++;
+ console.log(`slide right: ${slideIndex}`);
+ console.log(`slideLeft Index: ${slideLeftIndex}`);
+ console.log(
+  (popularSlider.style.transform = `translateX(-${slideIndex * 25}%)`)
+ );
+}
+
+// function navigationShow() {
+//  popularNavNumber[slideIndex].classList.add('nav-number-active');
+//  popularNavNumber__border[slideIndex].classList.add('border-active');
+// }
+
+function navigationShow() {
+ popularNavNumber[navIndex - 1].classList.add('nav-number-active');
+ popularNavNumber__border[navIndex - 1].classList.add('border-active');
+}
+
+function navigationRemove() {
+ popularNavNumber[slideIndex].classList.remove('nav-number-active');
+ popularNavNumber__border[slideIndex].classList.remove('border-active');
+}

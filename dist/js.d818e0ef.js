@@ -137,9 +137,7 @@ var popularSlider = document.querySelector('.popular-cards__slider');
 var popularBtnLeft = document.getElementById('popular-btn-left');
 var popularBtnRight = document.getElementById('popular-btn-right');
 var popularNavNumber = document.getElementsByClassName('popular-nav-number');
-var popularNavNumber__border = document.getElementsByClassName('popular-nav-number__border');
-console.log(popularNavNumber);
-console.log(popularNavNumber__border); //default configuration
+var popularNavNumber__border = document.getElementsByClassName('popular-nav-number__border'); //default configuration
 
 leftBtnHide(); //slide function
 
@@ -174,8 +172,7 @@ function rightBtnHide() {
 
 function rightBtnShow() {
   popularBtnRight.style.display = 'inline-block';
-} //to add and remove pagination highlight
-
+}
 
 var slideIndex = 0;
 var navIndex = 1;
@@ -237,12 +234,8 @@ function slideLeft() {
   slideLeftIndex++;
   console.log("slide right: ".concat(slideIndex));
   console.log("slideLeft Index: ".concat(slideLeftIndex));
-  console.log(popularSlider.style.transform = "translateX(-".concat(slideIndex * 25, "%)"));
-} // function navigationShow() {
-//  popularNavNumber[slideIndex].classList.add('nav-number-active');
-//  popularNavNumber__border[slideIndex].classList.add('border-active');
-// }
-
+  console.log(popularSlider.style.transform = "translateX(".concat(slideIndex * 25, "%)"));
+}
 
 function navigationShow() {
   popularNavNumber[navIndex - 1].classList.add('nav-number-active');
@@ -253,6 +246,103 @@ function navigationRemove() {
   popularNavNumber[slideIndex].classList.remove('nav-number-active');
   popularNavNumber__border[slideIndex].classList.remove('border-active');
 }
+},{}],"src/js/testimonial.js":[function(require,module,exports) {
+var testimonialContainer = document.querySelector('.testimonial-cards');
+var btnRight = document.getElementById('testimonial-btn-right');
+var btnLeft = document.getElementById('testimonial-btn-left');
+var card = document.getElementsByClassName('testimonial-card');
+var screenWidth = window.innerWidth; //default configuration
+
+card[0].classList.add('cardActive'); // btnLeftHide();
+// cardIndex++;
+
+var slideIndex = null;
+var cardIndex = 0;
+var maxSlide = 6;
+var slideLeftIndex = null;
+var slideRightIndex = null;
+btnRight.addEventListener('click', function () {
+  //  console.log(`♠ cardIndex BEFORE incremenet: ${cardIndex}♠`);
+  //  //increase the card index,to activate card
+  cardIndex++; //  console.log(`♠ cardIndex AFTER incremenet: ${cardIndex}♠`);
+  // activate card
+
+  card[cardIndex].classList.add('cardActive'); //  console.log(`SlideIndex BEFORE incremenet: ${slideIndex}`);
+
+  slideLeftLogic(); //increase slideIndex,on which the slide movement is based
+
+  slideIndex++;
+  slideLeftIndex++; //  console.log(`btn right: ${slideIndex}`);
+
+  console.log("btn right Slide index: ".concat(slideIndex)); //decrement cardIndex by 1, to keep track of previous card
+
+  card[cardIndex - 1].classList.remove('cardActive'); //check for last slide
+
+  if (slideIndex === maxSlide) {
+    btnRight.style.display = 'none';
+  }
+});
+btnLeft.addEventListener('click', function () {
+  if (slideIndex === 0) {
+    btnLeftHide();
+  }
+
+  console.log("btn left Slideindex: ".concat(slideIndex));
+  slideIndex--;
+  console.log("btn left Slideindex: ".concat(slideIndex));
+  sliderightLogic();
+  slideRight++;
+});
+
+function btnLeftHide() {
+  btnLeft.style.display = 'none';
+}
+
+function btnLeftShow() {
+  btnLeft.style.display = 'inline-block';
+}
+
+function slideLeft(num) {
+  var transform = testimonialContainer.style.transform = "translateX(-".concat(slideIndex * num, "%)");
+  console.log(transform);
+}
+
+function slideRight(num) {
+  var transform = testimonialContainer.style.transform = "translateX(-".concat((slideIndex - 1) * num, "%)");
+  console.log(" slide Right: ".concat(transform));
+}
+
+function sliderightLogic() {
+  //slider logic
+  if (screenWidth < 900 && screenWidth > 600) {
+    console.log("true: ".concat(screenWidth));
+    slideRight(50);
+  }
+
+  if (screenWidth < 500) {
+    console.log("true: ".concat(screenWidth));
+    slideRight(100);
+  } else if (screenWidth > 950) {
+    slideRight(30);
+  }
+}
+
+function slideLeftLogic() {
+  //slider logic
+  if (screenWidth < 900 && screenWidth > 600) {
+    console.log("true: ".concat(screenWidth));
+    slideLeft(50);
+  }
+
+  if (screenWidth < 500) {
+    console.log("true: ".concat(screenWidth));
+    slideLeft(100);
+  } else if (screenWidth > 950) {
+    slideLeft(30);
+  }
+} // function activateCardLeft() {
+//  card[slideIndex - 1].classList.add('cardActive');
+// }
 },{}],"src/js/index.js":[function(require,module,exports) {
 "use strict";
 
@@ -261,7 +351,9 @@ require("./searchbar");
 require("./mobileNav");
 
 require("./popularSlider");
-},{"./searchbar":"src/js/searchbar.js","./mobileNav":"src/js/mobileNav.js","./popularSlider":"src/js/popularSlider.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+require("./testimonial");
+},{"./searchbar":"src/js/searchbar.js","./mobileNav":"src/js/mobileNav.js","./popularSlider":"src/js/popularSlider.js","./testimonial":"src/js/testimonial.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -289,7 +381,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65008" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50628" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

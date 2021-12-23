@@ -5,8 +5,6 @@ const popularNavNumber = document.getElementsByClassName('popular-nav-number');
 const popularNavNumber__border = document.getElementsByClassName(
  'popular-nav-number__border'
 );
-console.log(popularNavNumber);
-console.log(popularNavNumber__border);
 
 //default configuration
 leftBtnHide();
@@ -43,8 +41,6 @@ function rightBtnHide() {
 function rightBtnShow() {
  popularBtnRight.style.display = 'inline-block';
 }
-
-//to add and remove pagination highlight
 
 let slideIndex = 0;
 let navIndex = 1;
@@ -109,14 +105,9 @@ function slideLeft() {
  console.log(`slide right: ${slideIndex}`);
  console.log(`slideLeft Index: ${slideLeftIndex}`);
  console.log(
-  (popularSlider.style.transform = `translateX(-${slideIndex * 25}%)`)
+  (popularSlider.style.transform = `translateX(${slideIndex * 25}%)`)
  );
 }
-
-// function navigationShow() {
-//  popularNavNumber[slideIndex].classList.add('nav-number-active');
-//  popularNavNumber__border[slideIndex].classList.add('border-active');
-// }
 
 function navigationShow() {
  popularNavNumber[navIndex - 1].classList.add('nav-number-active');

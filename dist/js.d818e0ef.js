@@ -247,36 +247,38 @@ function navigationRemove() {
   popularNavNumber__border[slideIndex].classList.remove('border-active');
 }
 },{}],"src/js/testimonial.js":[function(require,module,exports) {
-var testimonialContainer = document.querySelector('.testimonial-cards');
+var slide1 = document.querySelector('.testimonial-cards_slide1');
+var slide2 = document.querySelector('.testimonial-cards_slide2');
 var btnRight = document.getElementById('testimonial-btn-right');
 var btnLeft = document.getElementById('testimonial-btn-left');
 var card = document.getElementsByClassName('testimonial-card');
 var screenWidth = window.innerWidth; //default configuration
 
 card[0].classList.add('cardActive'); // btnLeftHide();
-// cardIndex++;
+// curCardActive++;
 
 var slideIndex = null;
-var cardIndex = 0;
+var curCardActive = 0;
+var curCardActiveRight = 5;
 var maxSlide = 6;
 var slideLeftIndex = null;
 var slideRightIndex = null;
 btnRight.addEventListener('click', function () {
-  //  console.log(`♠ cardIndex BEFORE incremenet: ${cardIndex}♠`);
-  //  //increase the card index,to activate card
-  cardIndex++; //  console.log(`♠ cardIndex AFTER incremenet: ${cardIndex}♠`);
-  // activate card
+  // increase card active
+  curCardActive++; //  show card active
 
-  card[cardIndex].classList.add('cardActive'); //  console.log(`SlideIndex BEFORE incremenet: ${slideIndex}`);
-
-  slideLeftLogic(); //increase slideIndex,on which the slide movement is based
-
+  cardActiveRight();
   slideIndex++;
-  slideLeftIndex++; //  console.log(`btn right: ${slideIndex}`);
+  slideLeftIndex++;
+  console.log("current card index RIGHT: ".concat(slideIndex));
+  console.log("current card ACTIVE index RIGHT: ".concat(curCardActive)); //remove previous active card
 
-  console.log("btn right Slide index: ".concat(slideIndex)); //decrement cardIndex by 1, to keep track of previous card
+  cardRemoveLeft(); //slide2 in if slide1 reach curCardActive2
 
-  card[cardIndex - 1].classList.remove('cardActive'); //check for last slide
+  if (curCardActive === 3) {
+    slide2in();
+  } //check for last slide
+
 
   if (slideIndex === maxSlide) {
     btnRight.style.display = 'none';
@@ -285,13 +287,30 @@ btnRight.addEventListener('click', function () {
 btnLeft.addEventListener('click', function () {
   if (slideIndex === 0) {
     btnLeftHide();
-  }
+  } // decrease card active
+  //  curCardActive--;
+  //  show card active
 
-  console.log("btn left Slideindex: ".concat(slideIndex));
+
+  cardActiveLeft();
   slideIndex--;
-  console.log("btn left Slideindex: ".concat(slideIndex));
-  sliderightLogic();
-  slideRight++;
+  slideLeftIndex--;
+  console.log("current card index LEFT: ".concat(slideIndex));
+  console.log("current card ACTIVE index LEFT: ".concat(curCardActive)); //remove previous active card
+
+  cardRemoveRight(); //slide2 in if slide1 reach curCardActive2
+  //  if (curCardActive === 3) {
+  //   slide2in();
+  //  }
+  //check for last slide
+  //  if (slideIndex === maxSlide) {
+  //   btnRight.style.display = 'none';
+  //  }
+  //  console.log(`btn left Slideindex: ${slideIndex}`);
+  //  slideIndex--;
+  //  console.log(`btn left Slideindex: ${slideIndex}`);
+  //  sliderightLogic();
+  //  slideRight++;
 });
 
 function btnLeftHide() {
@@ -340,9 +359,33 @@ function slideLeftLogic() {
   } else if (screenWidth > 950) {
     slideLeft(30);
   }
-} // function activateCardLeft() {
-//  card[slideIndex - 1].classList.add('cardActive');
-// }
+}
+
+function cardActiveRight() {
+  card[curCardActive].classList.add('cardActive');
+}
+
+function cardActiveLeft() {
+  card[curCardActive - 1].classList.add('cardActive');
+}
+
+function cardRemoveLeft() {
+  card[curCardActive - 1].classList.remove('cardActive');
+}
+
+function cardRemoveRight() {
+  card[curCardActive].classList.remove('cardActive');
+}
+
+function slide2in() {
+  slide1.style.transform = 'translateX(-100%)';
+  slide2.style.transform = 'translateX(-110%)';
+}
+
+function slide1in() {
+  slide2.style.transform = 'translateX(110%)';
+  slide1.style.transform = 'translateX(0%)';
+}
 },{}],"src/js/index.js":[function(require,module,exports) {
 "use strict";
 
@@ -381,7 +424,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50628" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57967" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

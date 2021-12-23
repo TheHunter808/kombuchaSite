@@ -18,6 +18,13 @@
   width: auto;
   //   width: 80%;
   //   margin: 0 auto;
+
+  &_slide1,
+  &_slide2 {
+   @include flex;
+   margin: 0 4em;
+   padding-left: 3vw;
+  }
  }
 
  &-card {

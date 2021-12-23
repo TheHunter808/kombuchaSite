@@ -1,4 +1,5 @@
-const testimonialContainer = document.querySelector('.testimonial-cards');
+const slide1 = document.querySelector('.testimonial-cards_slide1');
+const slide2 = document.querySelector('.testimonial-cards_slide2');
 const btnRight = document.getElementById('testimonial-btn-right');
 const btnLeft = document.getElementById('testimonial-btn-left');
 const card = document.getElementsByClassName('testimonial-card');
@@ -8,33 +9,34 @@ let screenWidth = window.innerWidth;
 //default configuration
 card[0].classList.add('cardActive');
 // btnLeftHide();
-// cardIndex++;
+// curCardActive++;
 
 let slideIndex = null;
-let cardIndex = 0;
+let curCardActive = 0;
+let curCardActiveRight = 5;
 const maxSlide = 6;
 let slideLeftIndex = null;
 let slideRightIndex = null;
 
 btnRight.addEventListener('click', () => {
- //  console.log(`♠ cardIndex BEFORE incremenet: ${cardIndex}♠`);
- //  //increase the card index,to activate card
- cardIndex++;
- //  console.log(`♠ cardIndex AFTER incremenet: ${cardIndex}♠`);
- // activate card
- card[cardIndex].classList.add('cardActive');
+ // increase card active
+ curCardActive++;
+ //  show card active
+ cardActiveRight();
 
- //  console.log(`SlideIndex BEFORE incremenet: ${slideIndex}`);
- slideLeftLogic();
- //increase slideIndex,on which the slide movement is based
  slideIndex++;
  slideLeftIndex++;
- //  console.log(`btn right: ${slideIndex}`);
- console.log(`btn right Slide index: ${slideIndex}`);
 
- //decrement cardIndex by 1, to keep track of previous card
+ console.log(`current card index RIGHT: ${slideIndex}`);
+ console.log(`current card ACTIVE index RIGHT: ${curCardActive}`);
 
- card[cardIndex - 1].classList.remove('cardActive');
+ //remove previous active card
+ cardRemoveLeft();
+
+ //slide2 in if slide1 reach curCardActive2
+ if (curCardActive === 3) {
+  slide2in();
+ }
 
  //check for last slide
  if (slideIndex === maxSlide) {
@@ -46,12 +48,34 @@ btnLeft.addEventListener('click', () => {
  if (slideIndex === 0) {
   btnLeftHide();
  }
+ // decrease card active
+ //  curCardActive--;
+ //  show card active
+ cardActiveLeft();
 
- console.log(`btn left Slideindex: ${slideIndex}`);
  slideIndex--;
- console.log(`btn left Slideindex: ${slideIndex}`);
- sliderightLogic();
- slideRight++;
+ slideLeftIndex--;
+
+ console.log(`current card index LEFT: ${slideIndex}`);
+ console.log(`current card ACTIVE index LEFT: ${curCardActive}`);
+
+ //remove previous active card
+ cardRemoveRight();
+
+ //slide2 in if slide1 reach curCardActive2
+ //  if (curCardActive === 3) {
+ //   slide2in();
+ //  }
+
+ //check for last slide
+ //  if (slideIndex === maxSlide) {
+ //   btnRight.style.display = 'none';
+ //  }
+ //  console.log(`btn left Slideindex: ${slideIndex}`);
+ //  slideIndex--;
+ //  console.log(`btn left Slideindex: ${slideIndex}`);
+ //  sliderightLogic();
+ //  slideRight++;
 });
 
 function btnLeftHide() {
@@ -106,6 +130,28 @@ function slideLeftLogic() {
  }
 }
 
-// function activateCardLeft() {
-//  card[slideIndex - 1].classList.add('cardActive');
-// }
+function cardActiveRight() {
+ card[curCardActive].classList.add('cardActive');
+}
+
+function cardActiveLeft() {
+ card[curCardActive - 1].classList.add('cardActive');
+}
+
+function cardRemoveLeft() {
+ card[curCardActive - 1].classList.remove('cardActive');
+}
+
+function cardRemoveRight() {
+ card[curCardActive].classList.remove('cardActive');
+}
+
+function slide2in() {
+ slide1.style.transform = 'translateX(-100%)';
+ slide2.style.transform = 'translateX(-110%)';
+}
+
+function slide1in() {
+ slide2.style.transform = 'translateX(110%)';
+ slide1.style.transform = 'translateX(0%)';
+}

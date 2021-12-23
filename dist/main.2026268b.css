@@ -591,6 +591,13 @@ h1:not(.hero-banner-content__header) {
   align-items: center;
   width: auto;
 }
+.testimonial-cards_slide1, .testimonial-cards_slide2 {
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  margin: 0 4em;
+  padding-left: 3vw;
+}
 .testimonial-card {
   width: 25em;
   height: 18em;

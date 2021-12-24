@@ -394,6 +394,85 @@
 }
 
 .testimonial {
+ @media screen and (max-width: 1428px) {
+  &-cards_slide1 {
+   padding: 0;
+   margin: 0 1%;
+  }
+ }
+
+ @media screen and (max-width: 1388px) {
+  &-cards {
+   width: 45vw;
+   height: 22em;
+   margin: 0 auto;
+   position: relative;
+   overflow-x: hidden;
+
+   &_slide2 {
+    transform: none;
+    margin: 0;
+    padding: 0;
+   }
+   @media screen and (max-width: 986px) {
+    width: 56vw;
+   }
+   @media screen and (max-width: 680px) {
+    width: 90vw;
+   }
+  }
+  &-card {
+   position: absolute;
+   width: 41vw;
+   box-shadow: 0px 8px 14px 1px silver;
+
+   @media screen and (max-width: 986px) {
+    margin: 0;
+    width: 54vw;
+   }
+   @media screen and (max-width: 680px) {
+    width: 88vw;
+   }
+   @media screen and (max-width: 480px) {
+    margin-left: 0.4em;
+   }
+  }
+  .chevron-container.testimonial-btns {
+   position: relative;
+   top: -28vh;
+   @media screen and (max-width: 680px) {
+    position: static;
+   }
+  }
+
+  .fas.fa-chevron-right {
+   right: 15vw;
+   @media screen and (max-width: 990px) {
+    right: 7%;
+   }
+   @media screen and (max-width: 680px) {
+    position: relative !important;
+    margin: 0 10vw;
+   }
+  }
+  .fas.fa-chevron-left {
+   left: 15vw;
+   @media screen and (max-width: 990px) {
+    left: 7%;
+   }
+   @media screen and (max-width: 680px) {
+    position: relative !important;
+    margin: 0 10vw;
+   }
+  }
+  i.fas.fa-chevron-right,
+  i.fas.fa-chevron-left {
+   @include testimonialBtnBG;
+
+   position: absolute;
+  }
+ }
+
  @media screen and (max-width: 500px) {
   padding: 0;
 

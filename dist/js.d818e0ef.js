@@ -251,67 +251,79 @@ var slide1 = document.querySelector('.testimonial-cards_slide1');
 var slide2 = document.querySelector('.testimonial-cards_slide2');
 var btnRight = document.getElementById('testimonial-btn-right');
 var btnLeft = document.getElementById('testimonial-btn-left');
-var card = document.getElementsByClassName('testimonial-card');
-var screenWidth = window.innerWidth; //default configuration
+var card = document.getElementsByClassName('testimonial-card'); // //default configuration
 
-card[0].classList.add('cardActive'); // btnLeftHide();
-// curCardActive++;
-
-var slideIndex = null;
-var curCardActive = 0;
-var curCardActiveRight = 5;
+card[0].classList.add('cardActive');
+var curSlide = 0;
 var maxSlide = 6;
-var slideLeftIndex = null;
-var slideRightIndex = null;
+var slide1Active = null;
+var slide2Active = null;
+var desktopSlide = true;
 btnRight.addEventListener('click', function () {
-  // increase card active
-  curCardActive++; //  show card active
-
-  cardActiveRight();
-  slideIndex++;
-  slideLeftIndex++;
-  console.log("current card index RIGHT: ".concat(slideIndex));
-  console.log("current card ACTIVE index RIGHT: ".concat(curCardActive)); //remove previous active card
-
-  cardRemoveLeft(); //slide2 in if slide1 reach curCardActive2
-
-  if (curCardActive === 3) {
-    slide2in();
-  } //check for last slide
-
-
-  if (slideIndex === maxSlide) {
-    btnRight.style.display = 'none';
+  if (desktopSlide === true) {
+    desktopSlide = true;
+    slideNext();
   }
 });
 btnLeft.addEventListener('click', function () {
-  if (slideIndex === 0) {
-    btnLeftHide();
-  } // decrease card active
-  //  curCardActive--;
-  //  show card active
-
-
-  cardActiveLeft();
-  slideIndex--;
-  slideLeftIndex--;
-  console.log("current card index LEFT: ".concat(slideIndex));
-  console.log("current card ACTIVE index LEFT: ".concat(curCardActive)); //remove previous active card
-
-  cardRemoveRight(); //slide2 in if slide1 reach curCardActive2
-  //  if (curCardActive === 3) {
-  //   slide2in();
-  //  }
-  //check for last slide
-  //  if (slideIndex === maxSlide) {
-  //   btnRight.style.display = 'none';
-  //  }
-  //  console.log(`btn left Slideindex: ${slideIndex}`);
-  //  slideIndex--;
-  //  console.log(`btn left Slideindex: ${slideIndex}`);
-  //  sliderightLogic();
-  //  slideRight++;
+  if (desktopSlide === true) {
+    desktopSlide = true;
+    slidePrev();
+    console.log('desktop btnLeft');
+  }
 });
+
+function slideNext() {
+  curSlide++;
+  nextCard(curSlide);
+  console.log(curSlide);
+
+  if (curSlide === 3) {
+    slide2in();
+    slide2Active = true;
+  }
+
+  if (curSlide === 5) {
+    btnRightHide();
+  }
+
+  if (curSlide > 0) {
+    btnLeftShow();
+  }
+
+  console.log(slide2Active);
+}
+
+function slidePrev() {
+  if (curSlide === 3 && slide2Active === true) {
+    slide1in();
+    slide2Active === false;
+  }
+
+  console.log(slide2Active);
+  prevCard(curSlide);
+  curSlide--;
+
+  if (curSlide === 0) {
+    btnLeftHide();
+  }
+
+  if (curSlide < 5) {
+    btnRightShow();
+  }
+
+  console.log(curSlide);
+}
+
+function nextCard(slide) {
+  card[slide].classList.add('cardActive');
+  card[slide - 1].classList.remove('cardActive');
+}
+
+function prevCard(slide) {
+  card[slide - 1].classList.add('cardActive');
+  card[slide].classList.remove('cardActive');
+}
 
 function btnLeftHide() {
   btnLeft.style.display = 'none';
@@ -321,60 +333,12 @@ function btnLeftShow() {
   btnLeft.style.display = 'inline-block';
 }
 
-function slideLeft(num) {
-  var transform = testimonialContainer.style.transform = "translateX(-".concat(slideIndex * num, "%)");
-  console.log(transform);
+function btnRightHide() {
+  btnRight.style.display = 'none';
 }
 
-function slideRight(num) {
-  var transform = testimonialContainer.style.transform = "translateX(-".concat((slideIndex - 1) * num, "%)");
-  console.log(" slide Right: ".concat(transform));
-}
-
-function sliderightLogic() {
-  //slider logic
-  if (screenWidth < 900 && screenWidth > 600) {
-    console.log("true: ".concat(screenWidth));
-    slideRight(50);
-  }
-
-  if (screenWidth < 500) {
-    console.log("true: ".concat(screenWidth));
-    slideRight(100);
-  } else if (screenWidth > 950) {
-    slideRight(30);
-  }
-}
-
-function slideLeftLogic() {
-  //slider logic
-  if (screenWidth < 900 && screenWidth > 600) {
-    console.log("true: ".concat(screenWidth));
-    slideLeft(50);
-  }
-
-  if (screenWidth < 500) {
-    console.log("true: ".concat(screenWidth));
-    slideLeft(100);
-  } else if (screenWidth > 950) {
-    slideLeft(30);
-  }
-}
-
-function cardActiveRight() {
-  card[curCardActive].classList.add('cardActive');
-}
-
-function cardActiveLeft() {
-  card[curCardActive - 1].classList.add('cardActive');
-}
-
-function cardRemoveLeft() {
-  card[curCardActive - 1].classList.remove('cardActive');
-}
-
-function cardRemoveRight() {
-  card[curCardActive].classList.remove('cardActive');
+function btnRightShow() {
+  btnRight.style.display = 'inline-block';
 }
 
 function slide2in() {
@@ -385,6 +349,70 @@ function slide2in() {
 function slide1in() {
   slide2.style.transform = 'translateX(110%)';
   slide1.style.transform = 'translateX(0%)';
+} //media query match
+
+
+var mediaQuery = window.matchMedia('(max-width:1388px)');
+
+if (mediaQuery.matches) {
+  var nextMobSlide = function nextMobSlide() {
+    //condition for maxSlide
+    if (curMobSlide === _maxSlide - 1) {
+      curMobSlide = 0;
+    } else {
+      curMobSlide++;
+    } //condition for leftBtn
+
+
+    if (curMobSlide > 0) {
+      btnLeftShow();
+    } else if (curMobSlide === 0) {
+      btnLeftHide();
+    } //slides and cardActivation for each
+
+
+    _card.forEach(function (slide, i) {
+      slide.style.transform = "translateX(".concat(100 * (i - curMobSlide), "%) ");
+      console.log(slide, i);
+    });
+  };
+
+  var prevMobSlide = function prevMobSlide() {
+    //condition for left btns and first slide
+    if (curMobSlide === 1) {
+      btnLeftHide();
+    } else {
+      btnLeftShow();
+    } //decresing curMobSlide
+
+
+    curMobSlide--; //   slide and activation for left btn
+
+    _card.forEach(function (slide, i) {
+      slide.style.transform = "translateX(-".concat(100 * (i - curMobSlide), "%) ");
+      console.log(slide, i);
+    });
+
+    console.log(curMobSlide);
+  };
+
+  var initMobile = function initMobile() {
+    _card.forEach(function (c, i) {
+      c.style.transform = "translateX(".concat(100 * i, "%)");
+      c.classList.add('cardActive');
+    });
+  };
+
+  var _card = document.querySelectorAll('.testimonial-card');
+
+  desktopSlide = false;
+  var curMobSlide = 0;
+  var _maxSlide = _card.length; //1.spreading card at this screensize
+  //2.adding active card list to all
+
+  btnRight.addEventListener('click', nextMobSlide);
+  btnLeft.addEventListener('click', function () {});
+  initMobile();
 }
 },{}],"src/js/index.js":[function(require,module,exports) {
 "use strict";
@@ -424,7 +452,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57967" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62933" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

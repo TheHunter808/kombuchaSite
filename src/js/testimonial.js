@@ -4,146 +4,87 @@ const btnRight = document.getElementById('testimonial-btn-right');
 const btnLeft = document.getElementById('testimonial-btn-left');
 const card = document.getElementsByClassName('testimonial-card');
 
-let screenWidth = window.innerWidth;
-
-//default configuration
+// //default configuration
 card[0].classList.add('cardActive');
-// btnLeftHide();
-// curCardActive++;
 
-let slideIndex = null;
-let curCardActive = 0;
-let curCardActiveRight = 5;
+let curSlide = 0;
 const maxSlide = 6;
-let slideLeftIndex = null;
-let slideRightIndex = null;
+let slide1Active = null;
+let slide2Active = null;
+let desktopSlide = true;
 
 btnRight.addEventListener('click', () => {
- // increase card active
- curCardActive++;
- //  show card active
- cardActiveRight();
-
- slideIndex++;
- slideLeftIndex++;
-
- console.log(`current card index RIGHT: ${slideIndex}`);
- console.log(`current card ACTIVE index RIGHT: ${curCardActive}`);
-
- //remove previous active card
- cardRemoveLeft();
-
- //slide2 in if slide1 reach curCardActive2
- if (curCardActive === 3) {
-  slide2in();
- }
-
- //check for last slide
- if (slideIndex === maxSlide) {
-  btnRight.style.display = 'none';
+ if (desktopSlide === true) {
+  desktopSlide = true;
+  slideNext();
  }
 });
 
 btnLeft.addEventListener('click', () => {
- if (slideIndex === 0) {
+ if (desktopSlide === true) {
+  desktopSlide = true;
+  slidePrev();
+  console.log('desktop btnLeft');
+ }
+});
+
+function slideNext() {
+ curSlide++;
+ nextCard(curSlide);
+ console.log(curSlide);
+ if (curSlide === 3) {
+  slide2in();
+  slide2Active = true;
+ }
+ if (curSlide === 5) {
+  btnRightHide();
+ }
+ if (curSlide > 0) {
+  btnLeftShow();
+ }
+ console.log(slide2Active);
+}
+
+function slidePrev() {
+ if (curSlide === 3 && slide2Active === true) {
+  slide1in();
+  slide2Active === false;
+ }
+
+ console.log(slide2Active);
+ prevCard(curSlide);
+ curSlide--;
+ if (curSlide === 0) {
   btnLeftHide();
  }
- // decrease card active
- //  curCardActive--;
- //  show card active
- cardActiveLeft();
+ if (curSlide < 5) {
+  btnRightShow();
+ }
+ console.log(curSlide);
+}
 
- slideIndex--;
- slideLeftIndex--;
+function nextCard(slide) {
+ card[slide].classList.add('cardActive');
+ card[slide - 1].classList.remove('cardActive');
+}
 
- console.log(`current card index LEFT: ${slideIndex}`);
- console.log(`current card ACTIVE index LEFT: ${curCardActive}`);
-
- //remove previous active card
- cardRemoveRight();
-
- //slide2 in if slide1 reach curCardActive2
- //  if (curCardActive === 3) {
- //   slide2in();
- //  }
-
- //check for last slide
- //  if (slideIndex === maxSlide) {
- //   btnRight.style.display = 'none';
- //  }
- //  console.log(`btn left Slideindex: ${slideIndex}`);
- //  slideIndex--;
- //  console.log(`btn left Slideindex: ${slideIndex}`);
- //  sliderightLogic();
- //  slideRight++;
-});
+function prevCard(slide) {
+ card[slide - 1].classList.add('cardActive');
+ card[slide].classList.remove('cardActive');
+}
 
 function btnLeftHide() {
  btnLeft.style.display = 'none';
 }
-
 function btnLeftShow() {
  btnLeft.style.display = 'inline-block';
 }
 
-function slideLeft(num) {
- let transform = (testimonialContainer.style.transform = `translateX(-${
-  slideIndex * num
- }%)`);
- console.log(transform);
+function btnRightHide() {
+ btnRight.style.display = 'none';
 }
-
-function slideRight(num) {
- let transform = (testimonialContainer.style.transform = `translateX(-${
-  (slideIndex - 1) * num
- }%)`);
- console.log(` slide Right: ${transform}`);
-}
-
-function sliderightLogic() {
- //slider logic
- if (screenWidth < 900 && screenWidth > 600) {
-  console.log(`true: ${screenWidth}`);
-
-  slideRight(50);
- }
- if (screenWidth < 500) {
-  console.log(`true: ${screenWidth}`);
-  slideRight(100);
- } else if (screenWidth > 950) {
-  slideRight(30);
- }
-}
-
-function slideLeftLogic() {
- //slider logic
- if (screenWidth < 900 && screenWidth > 600) {
-  console.log(`true: ${screenWidth}`);
-
-  slideLeft(50);
- }
- if (screenWidth < 500) {
-  console.log(`true: ${screenWidth}`);
-  slideLeft(100);
- } else if (screenWidth > 950) {
-  slideLeft(30);
- }
-}
-
-function cardActiveRight() {
- card[curCardActive].classList.add('cardActive');
-}
-
-function cardActiveLeft() {
- card[curCardActive - 1].classList.add('cardActive');
-}
-
-function cardRemoveLeft() {
- card[curCardActive - 1].classList.remove('cardActive');
-}
-
-function cardRemoveRight() {
- card[curCardActive].classList.remove('cardActive');
+function btnRightShow() {
+ btnRight.style.display = 'inline-block';
 }
 
 function slide2in() {
@@ -154,4 +95,69 @@ function slide2in() {
 function slide1in() {
  slide2.style.transform = 'translateX(110%)';
  slide1.style.transform = 'translateX(0%)';
+}
+
+//media query match
+
+const mediaQuery = window.matchMedia('(max-width:1388px)');
+
+if (mediaQuery.matches) {
+ const card = document.querySelectorAll('.testimonial-card');
+
+ desktopSlide = false;
+ let curMobSlide = 0;
+ let maxSlide = card.length;
+
+ //1.spreading card at this screensize
+ //2.adding active card list to all
+
+ btnRight.addEventListener('click', nextMobSlide);
+
+ btnLeft.addEventListener('click', () => {});
+
+ function nextMobSlide() {
+  //condition for maxSlide
+  if (curMobSlide === maxSlide - 1) {
+   curMobSlide = 0;
+  } else {
+   curMobSlide++;
+  }
+  //condition for leftBtn
+  if (curMobSlide > 0) {
+   btnLeftShow();
+  } else if (curMobSlide === 0) {
+   btnLeftHide();
+  }
+  //slides and cardActivation for each
+  card.forEach((slide, i) => {
+   slide.style.transform = `translateX(${100 * (i - curMobSlide)}%) `;
+   console.log(slide, i);
+  });
+ }
+
+ function prevMobSlide() {
+  //condition for left btns and first slide
+  if (curMobSlide === 1) {
+   btnLeftHide();
+  } else {
+   btnLeftShow();
+  }
+  //decresing curMobSlide
+  curMobSlide--;
+  //   slide and activation for left btn
+  card.forEach((slide, i) => {
+   slide.style.transform = `translateX(-${100 * (i - curMobSlide)}%) `;
+   console.log(slide, i);
+  });
+
+  console.log(curMobSlide);
+ }
+
+ function initMobile() {
+  card.forEach((c, i) => {
+   c.style.transform = `translateX(${100 * i}%)`;
+   c.classList.add('cardActive');
+  });
+ }
+ initMobile();
 }

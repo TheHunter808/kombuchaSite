@@ -498,6 +498,16 @@ if (mediaQuery.matches) {
   btnLeft.addEventListener('click', prevMobSlide);
   initMobile();
 }
+},{}],"src/js/stickyNav.js":[function(require,module,exports) {
+var header = document.querySelector('.header');
+var intersection = document.querySelector('.big-corps');
+console.log(intersection);
+var initCoord = intersection.getBoundingClientRect();
+console.log(initCoord);
+window.addEventListener('scroll', function () {
+  console.log(window.scrollY);
+  if (window.scrollY > initCoord.top) header.classList.add('navStick');else header.classList.remove('navStick');
+});
 },{}],"src/js/index.js":[function(require,module,exports) {
 "use strict";
 
@@ -508,7 +518,9 @@ require("./mobileNav");
 require("./popularSlider");
 
 require("./testimonial");
-},{"./searchbar":"src/js/searchbar.js","./mobileNav":"src/js/mobileNav.js","./popularSlider":"src/js/popularSlider.js","./testimonial":"src/js/testimonial.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+require("./stickyNav");
+},{"./searchbar":"src/js/searchbar.js","./mobileNav":"src/js/mobileNav.js","./popularSlider":"src/js/popularSlider.js","./testimonial":"src/js/testimonial.js","./stickyNav":"src/js/stickyNav.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -536,7 +548,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62478" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52331" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

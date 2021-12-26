@@ -6,14 +6,9 @@
  }
 
  @media screen and (max-width: 1000px) {
-  //   .nav {
-  //
-  //   }
-
   .nav {
-   //    display: none;
    position: absolute !important;
-   background: #dfdeee;
+   background: #dfdeeeef;
    left: -100vw;
    width: 50%;
    height: 100vh;
@@ -23,6 +18,7 @@
     width: 80% !important;
     text-align: center;
     border-radius: 8px;
+
     &:hover {
      background-color: #635d9e;
      box-shadow: 0 2px 1px 1px rgba(134, 134, 134, 0.527);

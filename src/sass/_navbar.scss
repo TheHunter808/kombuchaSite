@@ -3,7 +3,7 @@
  justify-content: center;
  padding: 1em 1em;
  height: 8vh;
-
+ @include transition(0.5s);
  /** 
  on scroll - activate 👇 this 
  */
@@ -31,6 +31,7 @@
     padding: 0.5em 0;
     opacity: 0.7;
     transition: all 0.2s ease-in-out;
+    margin: 0.6em 0;
    }
    > a:hover {
     border-bottom: 2px solid $primaryColor;
@@ -125,7 +126,6 @@
  padding: 0.4em;
  cursor: pointer;
  transition: all 0.2s ease-in-out;
- //  background-color: rgba(212, 202, 212, 0.521);
  background-color: #e0dfec;
  border-radius: 2px;
  opacity: 0.8;
@@ -144,4 +144,11 @@
   position: relative;
   left: -0em;
  }
+}
+
+.navStick {
+ position: fixed;
+ width: 100%;
+ background: rgba(248, 235, 219, 0.979);
+ height: 10vh;
 }

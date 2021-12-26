@@ -97,6 +97,7 @@ h1:not(.hero-banner-content__header) {
   justify-content: center;
   padding: 1em 1em;
   height: 8vh;
+  transition: all 0.5s ease-in-out;
   /** 
   on scroll - activate 👇 this 
   */
@@ -125,6 +126,7 @@ h1:not(.hero-banner-content__header) {
   padding: 0.5em 0;
   opacity: 0.7;
   transition: all 0.2s ease-in-out;
+  margin: 0.6em 0;
 }
 .header .nav .navlist > a:hover {
   border-bottom: 2px solid #ff5331;
@@ -226,6 +228,13 @@ h1:not(.hero-banner-content__header) {
   font-size: 1.5rem;
   position: relative;
   left: 0em;
+}
+
+.navStick {
+  position: fixed;
+  width: 100%;
+  background: rgba(248, 235, 219, 0.979);
+  height: 10vh;
 }
 
 .hero-banner {
@@ -757,7 +766,7 @@ h1:not(.hero-banner-content__header) {
 @media screen and (max-width: 1000px) {
   .header .nav {
     position: absolute !important;
-    background: #dfdeee;
+    background: #dfdeeeef;
     left: -100vw;
     width: 50%;
     height: 100vh;

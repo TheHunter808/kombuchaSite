@@ -113,7 +113,7 @@ if (mediaQuery.matches) {
 
  btnRight.addEventListener('click', nextMobSlide);
 
- btnLeft.addEventListener('click', () => {});
+ btnLeft.addEventListener('click', prevMobSlide);
 
  function nextMobSlide() {
   //condition for maxSlide

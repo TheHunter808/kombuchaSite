@@ -7,7 +7,6 @@
  }
 
  &-navigation-number {
-  //   @include borderTest;
   position: absolute;
   right: 4vw;
   padding: 0.8em;
@@ -16,12 +15,14 @@
   padding: 0.8em;
   opacity: 0.6;
   @include fontQuicksand;
+  @include transition(0.4s);
   &__border {
    width: 2em;
    height: 0.5em;
    display: inline-block;
    border-top: 2px solid $fontColor;
    opacity: 0.2;
+   @include transition(0.4s);
   }
  }
 
@@ -31,7 +32,7 @@
 
   &__slider {
    @include flex;
-   //    margin: 0 1em;
+   @include transition(0.4s);
   }
  }
 

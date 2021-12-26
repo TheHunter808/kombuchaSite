@@ -74,6 +74,7 @@ h1:not(.hero-banner-content__header) {
   border-radius: 50%;
   margin: 0 1em;
   font-size: 1.8rem;
+  @include transition(0.3s);
  }
  i.fas.fa-chevron-left:hover,
  i.fas.fa-chevron-right:hover {

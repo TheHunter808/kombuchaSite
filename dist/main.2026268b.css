@@ -77,6 +77,7 @@ h1:not(.hero-banner-content__header) {
   border-radius: 50%;
   margin: 0 1em;
   font-size: 1.8rem;
+  transition: all 0.3s ease-in-out;
 }
 .chevron-container i.fas.fa-chevron-left:hover,
 .chevron-container i.fas.fa-chevron-right:hover,
@@ -497,6 +498,7 @@ h1:not(.hero-banner-content__header) {
   padding: 0.8em;
   opacity: 0.6;
   font-family: "Quicksand", sans-serif;
+  transition: all 0.4s ease-in-out;
 }
 .popular-nav-number__border {
   width: 2em;
@@ -504,6 +506,7 @@ h1:not(.hero-banner-content__header) {
   display: inline-block;
   border-top: 2px solid #3d3d3d;
   opacity: 0.2;
+  transition: all 0.4s ease-in-out;
 }
 .popular-cards {
   display: flex;
@@ -515,6 +518,7 @@ h1:not(.hero-banner-content__header) {
   display: flex;
   display: -webkit-flex;
   align-items: center;
+  transition: all 0.4s ease-in-out;
 }
 .popular-card {
   display: flex;
@@ -599,7 +603,7 @@ h1:not(.hero-banner-content__header) {
   align-items: center;
   margin: 0 4em;
   padding-left: 3vw;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 .testimonial-cards_slide2 {
   transform: translateX(100%);
@@ -613,7 +617,7 @@ h1:not(.hero-banner-content__header) {
   grid-template-columns: 6em 1fr;
   opacity: 0.7;
   margin: 0 1.5em;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 .testimonial-card-name {
   font-weight: bold;

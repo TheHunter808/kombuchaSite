@@ -8,12 +8,13 @@
  @media screen and (max-width: 1000px) {
   .nav {
    position: absolute !important;
-   background: #dfdeeeef;
+   background: #dfdeeef8;
    left: -100vw;
    width: 50%;
    height: 100vh;
    top: 0;
    transition: all 0.4s ease-in-out;
+   z-index: 1;
    ul > a {
     width: 80% !important;
     text-align: center;
@@ -54,7 +55,23 @@
   }
  }
 
+ @media screen and (max-width: 580px) {
+  .nav {
+   width: 60vw;
+  }
+  .navlist {
+   line-height: 2em;
+   font-size: 3.8vw;
+   > a > li {
+    font-weight: bold;
+   }
+  }
+ }
+
  @media screen and (max-width: 480px) {
+  .nav {
+   width: 100vw;
+  }
   &-icon {
    & > img {
     width: 1.7em;
@@ -135,8 +152,7 @@
   &-icons-container {
    width: 15vw;
   }
-  //   @media screen and (max-width: 680px) {
-  //   }
+
   &-icon-paragraph {
    font-size: 2.6vw;
   }
@@ -151,11 +167,19 @@
   }
 
   &-text-container {
-   padding: 0.2em;
+   padding: 0.6em;
   }
 
   div.primary__btn.authenticity#authenticity-btn {
    margin-top: 3em !important;
+  }
+ }
+
+ @media screen and (max-width: 380px) {
+  &-text-container {
+   padding: 0.8em;
+   letter-spacing: 1px;
+   line-height: 0.8em;
   }
  }
 }
@@ -262,6 +286,11 @@
   &-vdo {
    left: 3vw;
    top: -3em;
+
+   @media screen and (max-width: 480px) {
+    left: -10%;
+    top: -3em;
+   }
   }
   &-vdo-peach {
    right: -64vw;
@@ -433,6 +462,7 @@
     margin-left: 0.4em;
    }
   }
+
   .chevron-container.testimonial-btns {
    position: relative;
    top: -28vh;
@@ -464,8 +494,23 @@
   i.fas.fa-chevron-right,
   i.fas.fa-chevron-left {
    @include testimonialBtnBG;
-
    position: absolute;
+
+   @media screen and (max-width: 680px) {
+    margin: 0 3em;
+    font-size: 1.2rem;
+    padding: 0.8em 1em;
+   }
+   @media screen and (max-width: 480px) {
+    margin: 0 2em;
+    font-size: 1.2rem;
+    padding: 0.8em 1em;
+   }
+   @media screen and (max-width: 380px) {
+    margin: 0 1.5em;
+    font-size: 1.2rem;
+    padding: 0.8em 1em;
+   }
   }
  }
 
@@ -489,6 +534,27 @@
   &-card {
    padding: 0.6em;
 
+   &-paragraph {
+    font-size: 4vw;
+    text-align: center;
+    padding: 0 0.6em;
+   }
+  }
+ }
+ @media screen and (max-width: 290px) {
+  &-card {
+   padding: 0.6em;
+   grid-template-columns: 5em 1fr;
+   &-quote-img__wrapper > img {
+    width: 18vw;
+    top: 8em;
+   }
+
+   &-img-stars {
+    margin-right: 2em;
+    justify-self: left;
+    align-self: center;
+   }
    &-paragraph {
     font-size: 4vw;
     text-align: center;
@@ -549,6 +615,18 @@
   &-right {
    font-size: 3vw;
   }
+
+  &-copyright {
+   font-size: 3vw;
+  }
+ }
+ @media screen and (max-width: 380px) {
+  &-right-header {
+   font-size: 5vw;
+  }
+  font-size: 2vw;
+  //   &-right {
+  //   }
 
   &-copyright {
    font-size: 3vw;

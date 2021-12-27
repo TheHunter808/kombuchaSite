@@ -92,6 +92,11 @@
  &-img-wrapper {
   width: 16vw;
   margin: 0 auto;
+  @include transition(1s);
+  cursor: pointer;
+  &:hover {
+   transform: scale(1.2);
+  }
  }
  &-article__img {
   width: 100%;
@@ -99,7 +104,8 @@
 
  &-vdo,
  &-vdo-peach {
-  width: 10em;
+  width: 8em;
+  height: 8em;
   text-align: center;
   position: relative;
   top: 4em;
@@ -109,9 +115,19 @@
   }
   &__play-btn {
    padding: 3em;
+   //    top: -0.5em;
+   //    position: relative;
    border: 1px dashed $primaryColor;
    border-radius: 50%;
    cursor: pointer;
+   @include transition(0.2s);
+   &:hover {
+    animation: rotateRight 13s ease-in-out;
+    border-width: 3px;
+    .product-showcase-vdo__text {
+     display: none;
+    }
+   }
   }
 
   &__text,
@@ -122,5 +138,25 @@
    font-weight: 600;
    @include primaryColor;
   }
+ }
+}
+
+//all animation for this section
+
+@keyframes rotateRight {
+ from {
+  transform: rotate(0deg);
+ }
+ to {
+  transform: rotate(360deg);
+ }
+}
+
+@keyframes rotateNone {
+ from {
+  transform: rotate(0deg);
+ }
+ to {
+  transform: rotate(-360deg);
  }
 }

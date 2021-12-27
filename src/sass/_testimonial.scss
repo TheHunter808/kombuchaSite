@@ -12,6 +12,7 @@
  &-cards {
   @include flex;
   width: auto;
+  border-radius: 1em;
   &_slide1,
   &_slide2 {
    @include flex;

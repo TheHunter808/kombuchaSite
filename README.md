@@ -1,3 +1,2 @@
 # kombuchaSite
-
-Developing an assessment website for 87lux Agency.
+A landing page website for 87lux Agency.

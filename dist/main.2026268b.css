@@ -584,10 +584,15 @@ h1:not(.hero-banner-content__header) {
   width: 40em;
   margin: 0 1em;
   cursor: pointer;
-  box-shadow: 0px 8px 24px 1px silver;
+  box-shadow: 0px 8px 24px 1px #d9d8d8;
 }
 .popular-card:hover {
-  box-shadow: 0px 8px 10px 1px silver;
+  box-shadow: 0px 8px 10px 1px #d9d8d8;
+}
+@media screen and (max-width: 1390px) {
+  .popular-card:hover {
+    box-shadow: 0px 4px 6px 1px #d9d8d8;
+  }
 }
 .popular-card-article {
   width: 16em;
@@ -729,11 +734,16 @@ h1:not(.hero-banner-content__header) {
 }
 
 .cardActive {
-  box-shadow: 0px 8px 24px 1px silver;
+  box-shadow: 0px 8px 24px 1px #d9d8d8;
   opacity: 1;
 }
 .cardActive:hover {
-  box-shadow: 0px 8px 10px 1px silver;
+  box-shadow: 0px 8px 10px 1px #d9d8d8;
+}
+@media screen and (max-width: 1390px) {
+  .cardActive:hover {
+    box-shadow: 0px 4px 6px 1px #d9d8d8;
+  }
 }
 
 .footer {
@@ -1217,7 +1227,7 @@ h1:not(.hero-banner-content__header) {
   .testimonial-card {
     position: absolute;
     width: 41vw;
-    box-shadow: 0px 8px 14px 1px silver;
+    box-shadow: 0px 3px 3px 1px #d9d8d8;
   }
 }
 @media screen and (max-width: 1388px) and (max-width: 986px) {
